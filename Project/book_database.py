@@ -1,4 +1,4 @@
-from prettytable.prettytable import PrettyTable
+from prettytable import PrettyTable
 from author_book import AuthorBook
 from author import Author
 from book import Book
@@ -196,14 +196,16 @@ class BookDatabase:
         available_authors = Author.get_authors()
         pretty_table = PrettyTable()
         pretty_table.field_names = ["ID", "Firstname", "Lastname"]
-        pretty_table.add_rows(available_authors)
+        for record in available_authors:
+            pretty_table.add_row(record)
         print(pretty_table)
 
     def print_search_result(self, result):
         if result:
             pretty_table = PrettyTable()
             pretty_table.field_names = ["ISBN", "Name", "Release date", "Publisher", "Author(s)"]
-            pretty_table.add_rows(result)
+            for record in result:
+                pretty_table.add_row(record)
             print(pretty_table)
         else:
             print('No search results for the given phrase')
@@ -222,7 +224,7 @@ class BookDatabase:
 
     def print_author_choose_menu(self):
         print()
-        print('What you want to do? Choose number from 1-4')
+        print('Choose number from 1-4')
         print('============================================')
         print('1. Choose author(s) from list')
         print('2. Add new author')

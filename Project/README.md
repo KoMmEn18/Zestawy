@@ -70,3 +70,25 @@ Opcja ta pozwala nam wylistować w przejrzystej dla oka tabelce wszystkie rekord
 ## Opcja 5
 
 Opcja ta pozwala nam zakończyć działanie programu.
+
+# Opis klas użytych w projekcie
+
+## Klasa BookDatabase
+
+Klasa ta jest sercem całego projektu. To właśnie w niej znajduje się logika odpowiedzialna za poprawne działanie całej aplikacji. Dzięki tej klasie tworzymy instancję naszej aplikacji i wywołujemy na niej metodę run, która uruchamia nam ją. W zależności od wybranej opcji (z pośrod dostępnych) sterowanie przekazywane jest do odpowiedniej metody. Główne metody są odpowiedzialne za dodawanie książki do bazy (przy jednoczesnym pobieraniu od użytkownika wszystkich potrzebnych informacji), usuwanie książki z bazy, wyszukiwanie książki po danym atrybucie oraz za listowanie książek znajdujacych się obecnie w bazie. W klasie znajdują się także poboczne metody służące do wypisywania błędów, wypisywania tabeli. Są one wywoływane w odpowiednim miejscu w głównych metodach.
+
+## Klasa Author
+
+Dzięki klasie author możemy stworzyc instancję tej klasy, a następnie poprzez metodę commit dodać danego autora do bazy danych. Klasa także zawiera statyczne metody, które umożliwiają kilka podstawowych rzeczy takich jak pobranie autorów znajdujących się w bazie, usunięcie autora o konkretnym identyfikatorze oraz sprawdzenie czy autor o konkretnym identyfikatorze istnieje w bazie danych.
+
+## Klasa Book
+
+Klasa book wyglądowo przypomina klasę author. Dzięki niej możemy utworzyć nową książkę, którą potem dodajemy do bazy danych. Klasa ta zawiera również metody statyczne. Oprócz metod odpowiadających klasie autora, zawiera także jedną dodatkową, która umożliwia nam pobieranie z bazy danych wyselekcjonowanych wyników.
+
+## Klasa AuthorBook
+
+Klasa ta zawiera tylko i wyłącznie statyczne metody, dzięki którym możemy np. dodać powiązanie między książką a autorem, pobrać książki dla danego autora, czy też pobrac autorów dla danej książki. Można powiedzieć, że jest to pewnego rodzaju klasa scalająca (podobnie jak tabela author_book w bazie danych).
+
+## Klasa Database
+
+Dzięki tej klasie możemy utworzyć instację projektowej bazy danych i wywoływać odpowiednie metody uwcześnie zdefiniowane w w.w klasie. Oprócz konstruktora oraz destruktora w klasie znajdują się także metody umożliwiające operacje wstawiania, usuwania, wyszukiwania w bazie danych.
